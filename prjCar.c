@@ -67,55 +67,59 @@ void timer2_init(void) {
     TCCR2 = 0b01101011;  // Fast PWM 모드 설정
 }
 
-// 이동 함수들
+// 바퀴 구동 함수
+// OCR0 - PORTB.4
+// OCR1 - PORTB.7
+// 모터 1 구동 - PORTB.5,6
+// 모터 2 구동 - PORTB 8,9
 void Go_Straight(void) {
     OCR0 = 90;
-    PORTB.2 = 0;
-    PORTB.3 = 1;
+    PORTB.5 = 0;
+    PORTB.6 = 1;
 
     OCR2 = 90;
-    PORTB.0 = 0;
-    PORTB.1 = 1;
+    PORTB.8 = 0;
+    PORTB.9 = 1;
 }
 
 void Back(void) {
     OCR0 = 90;
-    PORTB.2 = 1;
-    PORTB.3 = 0;
+    PORTB.5 = 1;
+    PORTB.6 = 0;
 
     OCR2 = 90;
-    PORTB.0 = 1;
-    PORTB.1 = 0;
+    PORTB.8 = 1;
+    PORTB.9 = 0;
 }
 
 void Turn_Right(void) {
     OCR0 = 90;
-    PORTB.2 = 1;
-    PORTB.3 = 0;
+    PORTB.5 = 1;
+    PORTB.6 = 0;
 
     OCR2 = 90;
-    PORTB.0 = 0;
-    PORTB.1 = 1;
+    PORTB.8 = 0;
+    PORTB.9 = 1;
 }
 
 void Turn_Left(void) {
     OCR0 = 90;
-    PORTB.2 = 0;
-    PORTB.3 = 1;
+    PORTB.5 = 0;
+    PORTB.6 = 1;
 
     OCR2 = 90;
-    PORTB.0 = 1;
-    PORTB.1 = 0;
+    PORTB.8 = 1;
+    PORTB.9 = 0;
 }
 
 void Stop(void) {
     OCR0 = 0;
-    PORTB.2 = 0;
-    PORTB.3 = 0;
+    PORTB.5 = 0;
+    PORTB.6 = 0;
 
     OCR2 = 0;
-    PORTB.0 = 0;
-    PORTB.1 = 0;
+    PORTB.8 = 0;
+    PORTB.9 = 0;
 }
 
 void main(void) {
@@ -130,7 +134,9 @@ void main(void) {
 
 
 while (1)
-      {    
+      {            
+      
+      
                      //테스트 목적
           delay_ms(5000);       // 5초 동안 대기   
            Go_Straight();  // 직진
