@@ -70,8 +70,8 @@ void timer2_init(void) {
 // 이동 함수들
 void Go_Straight(void) {
     OCR0 = 90;
-    PORTB.2 = 0;
-    PORTB.3 = 1;
+    PORTB.5 = 0;
+    PORTB.6 = 1;
 
     OCR2 = 90;
     PORTB.0 = 0;
@@ -80,8 +80,8 @@ void Go_Straight(void) {
 
 void Back(void) {
     OCR0 = 90;
-    PORTB.2 = 1;
-    PORTB.3 = 0;
+    PORTB.5 = 1;
+    PORTB.6 = 0;
 
     OCR2 = 90;
     PORTB.0 = 1;
@@ -90,8 +90,8 @@ void Back(void) {
 
 void Turn_Right(void) {
     OCR0 = 90;
-    PORTB.2 = 1;
-    PORTB.3 = 0;
+    PORTB.5 = 1;
+    PORTB.6 = 0;
 
     OCR2 = 90;
     PORTB.0 = 0;
@@ -100,8 +100,8 @@ void Turn_Right(void) {
 
 void Turn_Left(void) {
     OCR0 = 90;
-    PORTB.2 = 0;
-    PORTB.3 = 1;
+    PORTB.5 = 0;
+    PORTB.6 = 1;
 
     OCR2 = 90;
     PORTB.0 = 1;
@@ -110,8 +110,8 @@ void Turn_Left(void) {
 
 void Stop(void) {
     OCR0 = 0;
-    PORTB.2 = 0;
-    PORTB.3 = 0;
+    PORTB.5 = 0;
+    PORTB.6 = 0;
 
     OCR2 = 0;
     PORTB.0 = 0;
@@ -130,8 +130,10 @@ void main(void) {
 
 
 while (1)
-      {    
-                     //테스트 목
+      {            
+      
+      
+                     //테스트 목적
           delay_ms(5000);       // 5초 동안 대기   
            Go_Straight();  // 직진
         delay_ms(2000); // 2초 동안 직진
